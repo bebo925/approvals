@@ -2,9 +2,9 @@
 
 namespace bebo925\Approvals;
 
+use bebo925\Approvals\Commands\ApprovalsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use bebo925\Approvals\Commands\ApprovalsCommand;
 
 class ApprovalsServiceProvider extends PackageServiceProvider
 {
