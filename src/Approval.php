@@ -2,11 +2,10 @@
 
 namespace bebo925\Approvals;
 
-use bebo925\Approvals\ApprovalStep;
-use Illuminate\Database\Eloquent\Model;
 use bebo925\Approvals\Enums\ApprovalStatus;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Approval extends Model
 {
