@@ -2,9 +2,9 @@
 
 namespace bebo925\Approvals\Tests;
 
+use bebo925\Approvals\ApprovalsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use bebo925\Approvals\ApprovalsServiceProvider;
 
 class TestCase extends Orchestra
 {
