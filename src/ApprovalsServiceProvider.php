@@ -4,7 +4,6 @@ namespace bebo925\Approvals;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use bebo925\Approvals\Commands\ApprovalsCommand;
 
 class ApprovalsServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,7 @@ class ApprovalsServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('approvals')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_approvals_table')
-            ->hasCommand(ApprovalsCommand::class);
+            // ->hasConfigFile()
+            ->hasMigration('create_approvals_table');
     }
 }

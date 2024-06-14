@@ -8,11 +8,26 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('approvals_table', function (Blueprint $table) {
+        Schema::create('approval_steps', function (Blueprint $table) {
             $table->id();
+            $table->string('approvable_class');
+             $table->integer('order')->nullable();
+            $table->timestamps();
+        });
 
-            // add fields
+        Schema::create('approval_step_user', function (Blueprint $table) {
+            $table->foreignId('approval_step_id')->constrained('approval_steps');
+            $table->foreignId('user_id')->constrained('users');
+        });
 
+         Schema::create('approvals', function (Blueprint $table) {
+            $table->id();
+            $table->morphs('approvable');
+            $table->string('status')->nullable();
+            $table->datetime('approved_at')->nullable();
+            $table->foreignId('approved_by_id')->nullable();
+            $table->datetime('rejected_at')->nullable();
+            $table->foreignId('rejected_by_id')->nullable();
             $table->timestamps();
         });
     }
