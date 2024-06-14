@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace bebo925\Approvals;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use bebo925\Approvals\Commands\ApprovalsCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class ApprovalsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('approvals')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_approvals_table')
+            ->hasCommand(ApprovalsCommand::class);
     }
 }
