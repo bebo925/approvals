@@ -3,10 +3,9 @@
 namespace Bebo925\Approvals;
 
 use Illuminate\Database\Eloquent\Model;
-use bebo925\Approvals\Enums\ApprovalStatus;
+use Bebo925\Approvals\Enums\ApprovalStatus;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Approval extends Model
 {
