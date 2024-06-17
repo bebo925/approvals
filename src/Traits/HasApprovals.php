@@ -2,9 +2,9 @@
 
 namespace Bebo925\Approvals\Traits;
 
-use bebo925\Approvals\Approval;
-use bebo925\Approvals\ApprovalStep;
-use bebo925\Approvals\Enums\ApprovalStatus;
+use Bebo925\Approvals\Approval;
+use Bebo925\Approvals\ApprovalStep;
+use Bebo925\Approvals\Enums\ApprovalStatus;
 
 trait HasApprovals
 {
