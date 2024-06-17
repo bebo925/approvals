@@ -15,25 +15,21 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('approval_step_assignments', function (Blueprint $table) {
-            $table->morphs('approver');
+        Schema::create('approval_step_user', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('approval_step_id')->constrained('approval_steps');
         });
 
          Schema::create('approvals', function (Blueprint $table) {
             $table->id();
             $table->morphs('approvable');
+            $table->foreignId('approval_step_id')->constrained('approval_steps');
             $table->string('status')->nullable();
             $table->datetime('approved_at')->nullable();
             $table->foreignId('approved_by_id')->nullable();
             $table->datetime('rejected_at')->nullable();
             $table->foreignId('rejected_by_id')->nullable();
             $table->timestamps();
-        });
-
-         Schema::create('approval_user', function (Blueprint $table) {
-            $table->foreignId('approval_id')->constrained('approvals');
-            $table->foreignId('user_id')->constrained('users');
         });
     }
 };

@@ -3,21 +3,14 @@
 namespace bebo925\Approvals;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ApprovalStep extends Model
 {
     protected $guarded = [];
 
-    public function assignments(): Collection
+    public function users(): BelongsToMany
     {
-        $model = $this->approver_type::find($this->approver_id);
-        $method = config('approvals.mappings.' . $this->approver_type);
-
-        if (is_null($method)) {
-            return new Collection([$model]);
-        }
-
-        return $model->$method;
+        return $this->belongsToMany('App\Models\User');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use bebo925\Approvals\Enums\ApprovalStatus;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Approval extends Model
 {
@@ -44,13 +44,8 @@ class Approval extends Model
         return $this->belongsTo(ApprovalStep::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo('App\Models\User');
-    }
-
-    public function requestedApprovers(): BelongsToMany
-    {
-        return $this->belongsToMany('App\Models\User');
     }
 }

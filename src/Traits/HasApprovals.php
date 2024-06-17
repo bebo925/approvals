@@ -10,9 +10,9 @@ trait HasApprovals
 {
     public function approvalSteps()
     {
-        return $this->hasMany(ApprovalStep::class, 'approvable_type')
-            ->where('approvable_id', self::class)
-            ->orderBy('order');
+        return ApprovalStep::where('approvable_class', static::class)
+            ->orderBy('order')
+            ->get();
     }
 
     public function approvals()
@@ -22,10 +22,7 @@ trait HasApprovals
 
     public function generateApprovalSteps()
     {
-        //Todo: check for existing approvals and do something about it
-        ApprovalStep::where('approvable_class', self::class)
-            ->orderBy('order')
-            ->get()
+        $this->approvalSteps()
             ->each(function (ApprovalStep $approvalStep) {
                 $this->approvals()->create([
                     'approval_step_id' => $approvalStep->id,
