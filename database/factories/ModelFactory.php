@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Database\Factories;
+namespace Bebo925\Approvals\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

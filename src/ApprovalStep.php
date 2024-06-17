@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals;
+namespace Bebo925\Approvals;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

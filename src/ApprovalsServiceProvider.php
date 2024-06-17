@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals;
+namespace Bebo925\Approvals;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Contracts;
+namespace Bebo925\Approvals\Contracts;
 
 interface ListApprovers
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Facades;
+namespace Bebo925\Approvals\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Traits;
+namespace Bebo925\Approvals\Traits;
 
 use bebo925\Approvals\Approval;
 use bebo925\Approvals\ApprovalStep;

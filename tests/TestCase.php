@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Tests;
+namespace Bebo925\Approvals\Tests;
 
 use bebo925\Approvals\ApprovalsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'bebo925\\Approvals\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'bebo925\\Approvals\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 

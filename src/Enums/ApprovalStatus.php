@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Enums;
+namespace Bebo925\Approvals\Enums;
 
 enum ApprovalStatus: string
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace bebo925\Approvals\Commands;
+namespace Bebo925\Approvals\Commands;
 
 use Illuminate\Console\Command;
 
