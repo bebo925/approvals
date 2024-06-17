@@ -8,6 +8,13 @@ use bebo925\Approvals\Enums\ApprovalStatus;
 
 trait HasApprovals
 {
+    public function approvalSteps()
+    {
+        return $this->hasMany(ApprovalStep::class, 'approvable_type')
+            ->where('approvable_id', self::class)
+            ->orderBy('order');
+    }
+
     public function approvals()
     {
         return $this->morphMany(Approval::class, 'approvable');
