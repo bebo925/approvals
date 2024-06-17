@@ -1,6 +1,8 @@
 <?php
 
-// config for bebo925/Approvals
 return [
-
+    'mappings' => [
+        'App\Models\User' => null,
+        'Spatie\Permission\Models\Role' => 'users',
+    ],
 ];
