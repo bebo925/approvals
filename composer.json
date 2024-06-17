@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "bebo925\\Approvals\\": "src/",
-            "bebo925\\Approvals\\Database\\Factories\\": "database/factories/"
+            "Bebo925\\Approvals\\": "src/",
+            "Bebo925\\Approvals\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "bebo925\\Approvals\\Tests\\": "tests/",
+            "Bebo925\\Approvals\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -68,10 +68,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "bebo925\\Approvals\\ApprovalsServiceProvider"
+                "Bebo925\\Approvals\\ApprovalsServiceProvider"
             ],
             "aliases": {
-                "Approvals": "bebo925\\Approvals\\Facades\\Approvals"
+                "Approvals": "Bebo925\\Approvals\\Facades\\Approvals"
             }
         }
     },
