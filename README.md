@@ -60,13 +60,13 @@ $order->with(["approvals.users"])->get();
 Approve Step
 
 ```php
-$approvalStep->approve();
+$approval->approve();
 ```
 
 Reject Step
 
 ```php
-$approvalStep->reject();
+$approval->reject();
 ```
 
 Determine if model is approved
