@@ -1,11 +1,6 @@
-# This is my package approvals
+# Laravel Approvals
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bebo925/approvals.svg?style=flat-square)](https://packagist.org/packages/bebo925/approvals)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/bebo925/approvals/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bebo925/approvals/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/bebo925/approvals/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/bebo925/approvals/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/bebo925/approvals.svg?style=flat-square)](https://packagist.org/packages/bebo925/approvals)
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Approval workflow package
 
 ## Installation
 
@@ -35,17 +30,55 @@ return [
 ];
 ```
 
+Add `HasApprovals` trait to models that can have approval flows
+Add `CanApprove` to the User model
+
 ## Usage
 
+Create approval steps for models
+
 ```php
-$approvals = new bebo925\Approvals();
-echo $approvals->echoPhrase('Hello, bebo925!');
+ApprovalStep::create([
+    "approvable_class" => "App\Models\SomeModelThatWillHaveApprovalFlow"
+])
+->users()
+->sync([$userIds]);
 ```
 
-## Testing
+Generate approval steps with model that has the trait `HasApprovals`
 
-```bash
-composer test
+```php
+$myModel->generateApprovals();
+```
+
+Get approvals with required users for current model
+
+```php
+$order->with(["approvals.users"])->get();
+```
+
+Approve Step
+
+```php
+$approvalStep->approve();
+```
+
+Reject Step
+
+```php
+$approvalStep->reject();
+```
+
+Determine if model is approved
+
+```php
+$myModel->isApproved();
+```
+
+Determine if model contains a rejected status
+
+```php
+$myModel->isRejected();
 ```
 
 ## Changelog
