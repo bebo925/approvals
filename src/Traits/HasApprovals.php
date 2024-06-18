@@ -20,13 +20,15 @@ trait HasApprovals
         return $this->morphMany(Approval::class, 'approvable');
     }
 
-    public function generateApprovalSteps()
+    public function generateApprovals()
     {
         $this->approvalSteps()
             ->each(function (ApprovalStep $approvalStep) {
-                $this->approvals()->create([
+                $approval = $this->approvals()->create([
                     'approval_step_id' => $approvalStep->id,
                 ]);
+
+                $approval->users()->sync($approvalStep->users->pluck('id'));
             });
     }
 
