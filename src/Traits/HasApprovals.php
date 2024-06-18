@@ -20,6 +20,11 @@ trait HasApprovals
         return $this->morphMany(Approval::class, 'approvable');
     }
 
+    public function pendingApprovals()
+    {
+        return $this->approvals()->pending();
+    }
+
     public function generateApprovals()
     {
         $this->approvalSteps()

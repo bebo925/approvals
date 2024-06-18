@@ -81,6 +81,12 @@ Determine if model contains a rejected status
 $myModel->isRejected();
 ```
 
+Determined of models have pending approvals
+
+```php
+MyModel::withExists("pendingApprovals")->get();
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
