@@ -8,9 +8,10 @@ use Bebo925\Approvals\Enums\ApprovalStatus;
 
 trait HasApprovals
 {
-    public function approvalSteps()
+    public static function approvalSteps()
     {
         return ApprovalStep::where('approvable_class', static::class)
+            ->with('users')
             ->orderBy('order')
             ->get();
     }
