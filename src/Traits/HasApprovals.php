@@ -23,7 +23,7 @@ trait HasApprovals
 
     public function pendingApprovals()
     {
-        return $this->approvals()->pending();
+        return $this->approvals()->notApproved();
     }
 
     public function generateApprovals()
@@ -41,6 +41,10 @@ trait HasApprovals
 
     public function isApproved()
     {
+        if ($this->approvals->isEmpty()) {
+            return false;
+        }
+
         return $this->approvals->every(function (Approval $approval) {
             return $approval->status === ApprovalStatus::APPROVED;
         });

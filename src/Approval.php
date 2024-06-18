@@ -66,7 +66,7 @@ class Approval extends Model
 
     public function scopeNotApproved($query)
     {
-        return $query->wherewhere('status', '!=', ApprovalStatus::APPROVED);
+        return $query->where('status', '!=', ApprovalStatus::APPROVED);
     }
 
     public function scopeRejected($query)

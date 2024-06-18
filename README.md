@@ -48,7 +48,7 @@ ApprovalStep::create([
 Get approval steps with users
 
 ```php
-   $steps = MyModel::approvalSteps();
+$steps = MyModel::approvalSteps();
 ```
 
 Generate approval steps with model that has the trait `HasApprovals`
