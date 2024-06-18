@@ -32,6 +32,7 @@ trait HasApprovals
             ->each(function (ApprovalStep $approvalStep) {
                 $approval = $this->approvals()->create([
                     'approval_step_id' => $approvalStep->id,
+                    'status' => ApprovalStatus::PENDING,
                 ]);
 
                 $approval->users()->sync($approvalStep->users->pluck('id'));
@@ -43,6 +44,11 @@ trait HasApprovals
         return $this->approvals->every(function (Approval $approval) {
             return $approval->status === ApprovalStatus::APPROVED;
         });
+    }
+
+    public function isPending()
+    {
+        return $this->approvals->whereNot('status', ApprovalStatus::APPROVED)->isNotEmpty();
     }
 
     public function isRejected()

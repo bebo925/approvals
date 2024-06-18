@@ -56,15 +56,17 @@ class Approval extends Model
 
     public function scopePending($query)
     {
-        return $query->where(function ($query) {
-            $query->whereNull('status')
-                ->orWhereNot('status', ApprovalStatus::APPROVED);
-        });
+        return $query->where('status', ApprovalStatus::PENDING);
     }
 
     public function scopeApproved($query)
     {
         return $query->where('status',  ApprovalStatus::APPROVED);
+    }
+
+    public function scopeNotApproved($query)
+    {
+        return $query->wherewhere('status', '!=', ApprovalStatus::APPROVED);
     }
 
     public function scopeRejected($query)
